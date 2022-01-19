@@ -1,4 +1,11 @@
-import java.util.Scanner;
+// NAZMUS SAQIB
+// BRIEF OVERVIEW OF PURPOSE
+
+// this program gives information about certain tourist attractions that the user wants to know about,
+// such as the opening time and whether or not it is open on bank holidays.
+
+
+import java.util.Scanner; // Needed to make Scanner available
 
 public class TouristAttraction
 {
@@ -50,20 +57,15 @@ public class TouristAttraction
 
         String information;
 
-        if(attraction.equals("The Eden Project"))
-        {
+        if(attraction.equals("The Eden Project")) {
             information = attractionInfo(edenProject, edenProject.bankHoliday);
         }
-        else if (attraction.equals("Tate Modern"))
-        {
+        else if (attraction.equals("Tate Modern")) {
             information = attractionInfo(tateModern, tateModern.bankHoliday);
         }
-        else if (attraction.equals("London Zoo"))
-        {
+        else if (attraction.equals("London Zoo"))  {
             information = attractionInfo(londonZoo, londonZoo.bankHoliday);
-        }
-        else
-        {
+        } else {
             information = "I have no information about that attraction";
         }
 
@@ -75,14 +77,13 @@ public class TouristAttraction
     {
         String message;
 
-        if (bankHol == true)
-        {
+        if (bankHol == true)  {
             message = attraction.attractionName + " opens on bank holidays.";
-        }
-        else
-        {
+        } else {
             message = attraction.attractionName + " does not open on bank holidays.";
         }
+        
+        //concatenates the opening and closing hour message the variable message
         message += "\nIt opens at " + attraction.openingTime + "am and closes at " + attraction.closingTime + "pm";
 
         return message;
