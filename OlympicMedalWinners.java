@@ -1,3 +1,9 @@
+// NAZMUS SAQIB
+// BRIEF OVERVIEW OF PURPOSE
+
+// asks the user to enter 5 olympians with their sport and number of medals won
+// which the program outputs the average no. of medals between them all
+
 import java.util.Scanner;
 
 public class OlympicMedalWinners
@@ -57,5 +63,4 @@ public class OlympicMedalWinners
         System.out.println(message);
         return scanner.nextLine();
     }
-
 }
