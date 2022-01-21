@@ -1,5 +1,10 @@
-import java.util.Locale;
-import java.util.Scanner;
+// NAZMUS SAQIB
+// BRIEF OVERVIEW OF PURPOSE
+
+// asks the user to continuously enter the destination of a departed train and by how many minutes it has been late
+// when the user inputs "XXXX" the program outputs the total time late and the train that was late by the least amount
+
+import java.util.Scanner; // Needed to make Scanner available
 
 public class TrainCount
 {
@@ -18,18 +23,15 @@ public class TrainCount
         int totalTime = 0;
         int shortestTime = 1000;
 
-        int count = 0;
-
-
+        int count = 0
+            
         dest = inputString("\nWhat is the destination of the train that just departed? ");
         while (!dest.toUpperCase().equals("XXXX")) //while loop stops when "XXXX" is entered
         {
-
             time = Integer.parseInt(inputString("How many minutes late was it? "));
 
             totalTime += time;
-            if (time < shortestTime)
-            {
+            if (time < shortestTime) {
                 shortestTime = time;
                 shortestDest = dest;
             }
@@ -37,16 +39,13 @@ public class TrainCount
 
             count++;
         }
-        if (count == 0)
-        {
+        
+        if (count == 0) {
             System.out.println("No trains have been late"); // executes when loop stops immediately
-        }
-        else
-        {
+        } else {
             System.out.println("The trains were in total "+totalTime+" minutes late.");
             System.out.print("The most punctual train was to " + shortestDest + ". It was "+ shortestTime +" minute late.");
         }
-
     }
 
     // returns the input given by the user after a message is displayed
