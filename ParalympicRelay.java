@@ -1,4 +1,6 @@
-import java.util.Scanner;
+// NAZMUS SAQIB
+
+import java.util.Scanner; // Needed to make Scanner available
 
 public class ParalympicRelay
 {
@@ -7,6 +9,7 @@ public class ParalympicRelay
         askUser();
     }
 
+    // UniversalRelaTeam record
     public static class UniversalRelayTeam
     {
         String country;
@@ -16,47 +19,51 @@ public class ParalympicRelay
         int leg4;
     }
 
-    // getters
+    // getter methods for record, returns relevant field
     public static String getCountry(UniversalRelayTeam team) {
-        return team.country;}
-
+        return team.country;
+    }
     public static int getLeg1(UniversalRelayTeam team) {
-        return team.leg1;}
-
+        return team.leg1;
+    }
     public static int getLeg2(UniversalRelayTeam team) {
-        return team.leg2;}
-
+        return team.leg2;
+    }
     public static int getLeg3(UniversalRelayTeam team) {
-        return team.leg3;}
-
+        return team.leg3;
+    }
     public static int getLeg4(UniversalRelayTeam team) {
-        return team.leg4;}
+        return team.leg4;
+    }
 
-    // setters
+    // setters methods for record, changes the relevant field
     public static UniversalRelayTeam setCountry(UniversalRelayTeam team, String ctry) {
         team.country = ctry;
-        return team;}
-
+        return team;
+    }
     public static UniversalRelayTeam setLeg1(UniversalRelayTeam team, int l1) {
         team.leg1 = l1;
-        return team;}
-
+        return team;
+    }
     public static UniversalRelayTeam setLeg2(UniversalRelayTeam team, int l2) {
         team.leg2 = l2;
-        return team;}
-
+        return team;
+    }
     public static UniversalRelayTeam setleg3(UniversalRelayTeam team, int l3) {
         team.leg3 = l3;
-        return team;}
-
+        return team;
+    }
     public static UniversalRelayTeam setleg4(UniversalRelayTeam team, int l4) {
         team.leg4 = l4;
-        return team;}
+        return team;
+    }
 
 
+    // record initialisation method
     public static UniversalRelayTeam createTeam(String ctry, int l1, int l2, int l3, int l4)
     {
         UniversalRelayTeam newTeam = new UniversalRelayTeam();
+        
         setCountry(newTeam, ctry);
         setLeg1(newTeam, l1);
         setLeg2(newTeam, l2);
@@ -65,11 +72,13 @@ public class ParalympicRelay
         return newTeam;
     }
 
+    // returns a string displaying the team information
     public static String convertTeamToString(UniversalRelayTeam team)
     {
-        return "The " +getCountry(team)+ " team is: Leg 1, T" +getLeg1(team)+ "; Leg 2, T" +getLeg2(team)+ "; Leg 3, T" +getLeg3(team)+ "; Leg 4 T" +getLeg4(team);
+        return "The " +getCountry(team)+ " team is: Leg 1, T" +getLeg1(team)+ "; Leg 2, T" +getLeg2(team)+ "; Leg 3, T" +getLeg3(team)+ "; Leg 4, T" +getLeg4(team);
     }
 
+    // checks each leg if it is legal or not and returns a message
     public static String checkLegal(UniversalRelayTeam team)
     {
         int l1 = getLeg1(team);
@@ -99,15 +108,13 @@ public class ParalympicRelay
             isLegal4 = true;
         }
 
-        if (isLegal1 && isLegal2 && isLegal3 && isLegal4) {
-            legalMessage = ("All the legs are legal");
-        }
-        else
-        {
+        if (isLegal1 && isLegal2 && isLegal3 && isLegal4) { 
+            legalMessage = ("All the legs are legal"); // executes if all legs are legal 
+        } else {
             if (l1 != 11 && l1 != 13) {
                 legalMessage += ("\nLeg 1 (T" +l1+ ") is not legal");
             }
-
+            
             if(l2 != 61 && l2 != 62) {
                 legalMessage += ("\nLeg 2 (T" +l2+ ") is not legal");
             }
@@ -123,6 +130,7 @@ public class ParalympicRelay
         return legalMessage;
     }
 
+    // asks the user for event classification, country and each leg gives an output if it is legal or not
     public static void askUser()
     {
         int maxPoints = Integer.parseInt(inputString("What is the classification (maximum points) of this relay event? "));
