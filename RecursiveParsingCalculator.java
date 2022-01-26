@@ -1,4 +1,14 @@
-import java.util.Scanner;
+// NAZMUS SAQIB
+// 12/12/2021
+// VERSION 1
+// BRIEF OVERVIEW OF PURPOSE
+
+//program recusively parses an expression input as a string
+// from the following recursively defined language: 
+// <EXP> = * <DIGIT> <EXP> | T <EXP> | <DIGIT>
+// <DIGIT> = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C 
+
+import java.util.Scanner; // Needed to make Scanner available
 
 public class RecursiveParsingCalculator
 {
@@ -11,16 +21,15 @@ public class RecursiveParsingCalculator
         print("The answer is " + answer);
     }
     
+    // evaluates a given expression through recursion 
     public static int evaluateEXP (String expression)
     {
         int result;
         int length = expression.length();
-        if (length == 1)
+        if (length == 1)//length of 1 means its a <digit>
         {
             result = evaluateDigit(expression);
-        }
-        else
-        {
+        } else {
             result = evaluateMult(expression);
         }
 
@@ -34,6 +43,7 @@ public class RecursiveParsingCalculator
         int num2;
         int result;
 
+        //checks if first character is "*"
         if (nextChar(expression).equals("*"))
         {
             String rest = remainingChars(expression);
@@ -41,18 +51,15 @@ public class RecursiveParsingCalculator
             String end = remainingChars(rest);
 
             num1 = evaluateDigit(second);
-            num2 = evaluateEXP(end);
+            num2 = evaluateEXP(end); //calls rescursive method  evaluateEXP
             
             result = num1 * num2;
-        }
-        else if(nextChar(expression).equals("T"))
-        {
+            
+        } else if(nextChar(expression).equals("T")) { /*checks if first character is "T" */
             String rest = remainingChars(expression);
-            int remaining = evaluateEXP(rest);
+            int remaining = evaluateEXP(rest); //recursive call 
             result = (remaining) + (remaining + 1) + (remaining + 2);
-        }
-        else
-        {
+        } else {
             String first = nextChar(expression);
             String rest = remainingChars(expression);
             String end = remainingChars(rest);
@@ -65,8 +72,10 @@ public class RecursiveParsingCalculator
         return result;
     }
 
+    // corresponding integer of the string is given
     public static int evaluateDigit(String input)
     {
+        //checks string for all possible digits
         int result = -1;
         if(input.equals("0")) result = 0;
         else if(input.equals("1")) result = 1;
@@ -86,22 +95,26 @@ public class RecursiveParsingCalculator
         return result;
     }
 
+    //gets the first character of the string
     public static String nextChar(String input)
     {
         return input.substring(0,1);
     }
 
+    //returns remaining string excluding first character
     public static String remainingChars(String input)
     {
         return input.substring(1);
     }
 
+    //quits the program if incorrect expression given
     public static void quit ()
     {
         print("youre expression is invalid");
         System.exit(0);
     }
 
+    //generic method for taking an input from the user after a prompt
     public static String inputString(String message)
     {
         Scanner scanner = new Scanner(System.in);
@@ -109,7 +122,8 @@ public class RecursiveParsingCalculator
         String response = scanner.nextLine();
         return response;
     }
-
+    
+    // generic method to print a message
     public static void print(String message)
     {
         System.out.println(message);
