@@ -1,6 +1,4 @@
 // NAZMUS SAQIB
-// 12/12/2021
-// VERSION 1
 // BRIEF OVERVIEW OF PURPOSE
 
 //program recusively parses an expression input as a string
